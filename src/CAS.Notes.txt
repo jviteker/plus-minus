@@ -1,0 +1,63 @@
+// import { Expression, Fraction, toTex } from "algebra.js";
+import "katex/dist/katex.min.css";
+import xxx from "nerdamer";
+import ttt from "nerdamer/all";
+// // import * as math from "mathjs";
+import { InlineMath, BlockMath } from "react-katex";
+
+const nerdamer: typeof xxx = ttt;
+
+// import { create, all } from "mathjs";
+// const math = create(all);
+// math.config({ number: "Fraction" });
+
+function App() {
+  // const text = nerdamer.convertToLaTeX("1/2 + 1/3 + 1/4 + 1/5 =");
+  // const result = nerdamer("1/2 + 1/3 + 1/4 + 1/5").toTeX();
+
+  const prompt = "3*x + 4";
+
+  // const text2 = nerdamer.convertToLaTeX(prompt + "=");
+  // const result2 = nerdamer(nerdamer(prompt).expand().simplify());
+
+  // console.log("XXX:", nerdamer(nerdamer(prompt).expand().simplify()).toTeX());
+
+  // const exp = new Expression(new Fraction(4, 9)).add(new Fraction(4, 3), false);
+  // const simplified = exp.simplify();
+
+  // const exp = new Expression("x").pow(2, false);
+  // const simplified = exp.simplify();
+  // // const evaluated = exp.eval({ x: 1 });
+
+  // const t = math.chain(5).add(7).done().toString();
+  // console.log("t:", t);
+
+  // const v = "7/5 + 8/6";
+  // const e = math.parse(v);
+
+  // const simplifiedM = math.simplify(v);
+
+  return (
+    <div
+      style={
+        {
+          // fontSize: "40px",
+        }
+      }
+    >
+      {/* <InlineMath math={toTex(exp) + " = "} /> */}
+      {/* <InlineMath math={toTex(simplified)} /> */}
+      <br />
+      {/* <InlineMath math={e.toTex() + " = "} /> */}
+      {/* <InlineMath math={simplifiedM.toTex()} /> */}
+      <br />
+      {/* <InlineMath math={text} />
+      <InlineMath math={result} /> */}
+      <br />
+      <InlineMath math={"\\Box"} />
+      <InlineMath math={"\\square"} />
+    </div>
+  );
+}
+
+export default App;

@@ -1,0 +1,13 @@
+diff --git a/node_modules/algebra.js/src/expressions.js b/node_modules/algebra.js/src/expressions.js
+index 10281b3..e40c430 100644
+--- a/node_modules/algebra.js/src/expressions.js
++++ b/node_modules/algebra.js/src/expressions.js
+@@ -410,7 +410,7 @@ Expression.prototype._cubicCoefficients = function() {
+     return {a:a, b:b, c:c, d:d};
+ };
+ 
+-Term = function(variable) {
++var Term = function(variable) {
+     if (variable instanceof Variable) {
+         this.variables = [variable.copy()];
+     } else if (typeof(variable) === "undefined") {
