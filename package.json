@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "algebra.js": "^0.2.6",
+    "immer": "^9.0.17",
     "katex": "^0.16.4",
     "lodash": "^4.17.21",
     "mathjs": "^11.5.0",

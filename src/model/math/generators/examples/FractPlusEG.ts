@@ -1,10 +1,11 @@
 import _ from "lodash";
 import nerdamer from "nerdamer";
+import { DeepPartial } from "../../../utils/UtilityTypes";
+import { Utils } from "../../../utils/Utils";
 import { Example } from "../../primitives/Example";
 import { Formula } from "../../primitives/Formula";
 import { Fraction } from "../../primitives/Fraction";
 import { MathSymbol } from "../../primitives/MathSymbol";
-import { DeepPartial, Utils } from "../../utils/Utils";
 import { AGenerator } from "./AGenerator";
 
 type FractionsPlusExamplesGeneratorConfig = {

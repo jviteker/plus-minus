@@ -1,8 +1,9 @@
 import _ from "lodash";
+import { DeepPartial } from "../../../../utils/UtilityTypes";
+import { Utils } from "../../../../utils/Utils";
 import { Example } from "../../../primitives/Example";
 import { MathSymbol } from "../../../primitives/MathSymbol";
 import { MNumber } from "../../../primitives/MNumber";
-import { DeepPartial, Utils } from "../../../utils/Utils";
 import { AGenerator } from "../AGenerator";
 
 type PlusExamplesGeneratorConfig = {

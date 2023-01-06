@@ -1,4 +1,4 @@
-import { Utils } from "../utils/Utils";
+import { Utils } from "../../utils/Utils";
 import { MathSymbol } from "./MathSymbol";
 
 export class MNumber extends MathSymbol {

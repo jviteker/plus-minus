@@ -4,10 +4,6 @@ const toInt = (input: number): Int => {
   return Math.round(input) as Int;
 };
 
-export type DeepPartial<T> = {
-  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
-};
-
 export class Utils {
   static random(min: number = 1, max: number = 10) {
     const range = max - min;

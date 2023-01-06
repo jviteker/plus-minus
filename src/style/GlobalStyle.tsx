@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   @media screen {
     html, body {
+      margin: 0;
       background-color: #eeeeee;
     }
   }
@@ -11,5 +12,4 @@ export const GlobalStyle = createGlobalStyle`
     size: A4;
     margin: 10mm 0mm;
   }
-
 `;

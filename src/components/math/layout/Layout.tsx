@@ -6,11 +6,23 @@ import {
 } from "react";
 import styled from "styled-components";
 
-export const XPage = styled.div`
+export const PageContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
+
+export const Page = styled.div`
   background-color: white;
   /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
+
+  &.even {
+    ${PageContent} {
+      transform: rotate(180deg);
+    }
+  }
 
   @media screen {
     width: 210mm;
@@ -23,16 +35,6 @@ export const XPage = styled.div`
   @media print {
     width: 210mm;
     height: 277mm;
-  }
-`;
-
-export const PageContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-
-  &.even {
-    transform: rotate(180deg);
   }
 `;
 

@@ -1,7 +1,7 @@
 import _ from "lodash";
+import { DeepPartial } from "../../../../utils/UtilityTypes";
 import { Example } from "../../../primitives/Example";
 import { MNumber } from "../../../primitives/MNumber";
-import { DeepPartial } from "../../../utils/Utils";
 import { AGenerator } from "../AGenerator";
 
 type CompareExamplesGeneratorConfig = {

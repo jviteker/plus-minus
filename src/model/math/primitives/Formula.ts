@@ -1,5 +1,5 @@
-import { MathSymbol } from "./MathSymbol";
 import { IPrintable } from "../Types";
+import { MathSymbol } from "./MathSymbol";
 
 export class Formula implements IPrintable {
   private symbols: MathSymbol[];

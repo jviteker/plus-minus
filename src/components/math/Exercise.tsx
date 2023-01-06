@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import { Example } from "../model/primitives/Example";
-import { Utils } from "../model/utils/Utils";
+import { Example } from "../../model/math/primitives/Example";
+import { Utils } from "../../model/utils/Utils";
 import { ExampleRow } from "./ExampleRow";
 import { VerticalCut } from "./layout/Layout";
 

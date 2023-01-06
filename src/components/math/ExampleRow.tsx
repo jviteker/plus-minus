@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
 import { InlineMath } from "react-katex";
-import styled from "styled-components";
-import { Example } from "../model/primitives/Example";
+import { Example } from "../../model/math/primitives/Example";
 import { LeftCell, RightCell } from "./Exercise";
 
 type ExampleRowPropsType = {
