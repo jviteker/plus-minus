@@ -38,7 +38,14 @@ export class ApplicationState extends ComponentModel<AppState> {
   }
 
   setColumnsCount(c: number) {
+    const {
+      exercises: { count },
+    } = this.getState();
+
+    this.begin();
     this.updateState("layout.columns", c);
+    this.updateState("exercises.count", Math.ceil(count / c) * c);
+    this.commit();
   }
 
   setExamplesCount(c: number) {
@@ -46,7 +53,17 @@ export class ApplicationState extends ComponentModel<AppState> {
   }
 
   setExercisesCount(c: number) {
-    this.updateState("exercises.count", c);
+    const {
+      layout: { columns },
+      exercises: { count: countBefore },
+    } = this.getState();
+
+    const newValue =
+      c < countBefore
+        ? Math.floor(c / columns) * columns
+        : Math.ceil(c / columns) * columns;
+
+    this.updateState("exercises.count", newValue);
   }
 
   getExamplesCount() {

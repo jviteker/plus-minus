@@ -1,6 +1,6 @@
 import produce from "immer";
 import _ from "lodash";
-import { ObjectPaths } from "../utils/UtilityTypes";
+import { ObjectPaths } from "../../model/utils/UtilityTypes";
 import { WithEvents } from "./WithEvents";
 
 const STATE_UPDATE = Symbol("State updated");
@@ -251,6 +251,7 @@ export abstract class ComponentModel<
   protected updateState<ExplicitStateType = StateType>(
     propPath: ObjectPaths<ExplicitStateType, 4>,
     newValue: any,
+    // @ts-ignore
     isEqual: typeof this.isEqual = this.isEqual
   ): boolean {
     const current = _.get(this.state, propPath);
