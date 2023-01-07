@@ -54,7 +54,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
             type={"number"}
             value={state.exercises.examples.count}
             min={1}
-            max={20}
+            max={36}
             onChange={(e) => {
               store.setExamplesCount(Number(e.currentTarget.value));
             }}
