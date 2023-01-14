@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import { ApplicationStateStore } from "../../state/ApplicationStateStore";
 import { Page as PageModel } from "./page/Page";
 
 export class PageLayoutGenerator {
@@ -49,10 +50,14 @@ export class PageLayoutGenerator {
   }
 
   asReactMarkup() {
+    const doubleSided = ApplicationStateStore.getInstance()
+      .getViewModel()
+      .getState().layout.doubleSidedPrint;
+
     return this.pages.map((p, i) => {
       return React.cloneElement(p.asReactMarkup(), {
         key: i,
-        className: i % 2 ? "even" : "",
+        className: doubleSided && i % 2 ? "even" : "",
       });
     });
   }

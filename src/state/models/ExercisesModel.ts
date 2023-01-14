@@ -9,9 +9,11 @@ export type ExercisesModelState = {
 };
 
 const DefaultState: Partial<ExercisesModelState> = {
+  // count of exercises
   count: 30,
   examples: {
-    count: 10,
+    // count of examples per exercise
+    count: 7,
   },
 };
 

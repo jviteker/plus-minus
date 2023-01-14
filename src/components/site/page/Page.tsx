@@ -1,18 +1,32 @@
 import React, { ReactElement } from "react";
-import { PageRow } from "./PageRow";
+import { ApplicationStateStore } from "../../../state/ApplicationStateStore";
 import {
-  Columns,
   Page as ReactPage,
   PageContent,
   VerticalCut,
 } from "../../math/layout/Layout";
-
-const MAX_PAGE_HEIGHT = 39;
+import { PageRow } from "./PageRow";
 
 export class Page {
   private rows: PageRow[] = [];
 
   constructor(private columns: number, private exPerRow: number) {}
+
+  static getMaxHeight() {
+    const lineHeight = ApplicationStateStore.getInstance()
+      .getViewModel()
+      .getState().lineHeight;
+
+    if (lineHeight === 16) {
+      return 40 * 16;
+    }
+
+    if (lineHeight === 32) {
+      return 52 * 16;
+    }
+
+    return 60 * 16;
+  }
 
   getHeight() {
     let h = 0;
@@ -38,7 +52,7 @@ export class Page {
     const newRow = this.createRow();
 
     const wouldBeHeight = this.getHeight() + newRow.getHeight();
-    if (wouldBeHeight > MAX_PAGE_HEIGHT) {
+    if (wouldBeHeight > Page.getMaxHeight()) {
       throw "page_overfilled";
     }
 

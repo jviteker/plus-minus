@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { ApplicationStateStore } from "../../../state/ApplicationStateStore";
 import { Columns } from "../../math/layout/Layout";
 
 export class PageRow {
@@ -15,7 +16,11 @@ export class PageRow {
   }
 
   getHeight() {
-    return this.exPerRow + 2;
+    const lineHeight = ApplicationStateStore.getInstance()
+      .getViewModel()
+      .getState().lineHeight;
+
+    return this.exPerRow * lineHeight + 2 * 16;
   }
 
   asReactMarkup() {

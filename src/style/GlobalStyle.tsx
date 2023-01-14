@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  html, body {
+    font-size: 16px;
+  }
+
   @media screen {
     html, body {
       margin: 0;

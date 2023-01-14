@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { Example } from "../../model/math/primitives/Example";
 import { Utils } from "../../model/utils/Utils";
+import { useStateSlice } from "../../state/utils/hooks/useStateSlice";
 import { ExampleRow } from "./ExampleRow";
 import { VerticalCut } from "./layout/Layout";
 
@@ -11,13 +12,18 @@ type ExercisePropsType = {
   selfEvaluation?: boolean;
 };
 
+type FontSizeProps = {
+  lineHeigh: number;
+  fontSize: number;
+};
+
 const Container = styled.div`
   position: relative;
   margin: 0 10px 0 10px;
   width: 100%;
 `;
 
-const ExTable = styled.table`
+const ExTable = styled.table<FontSizeProps>`
   width: 100%;
   border-collapse: collapse;
 
@@ -27,6 +33,11 @@ const ExTable = styled.table`
       padding-bottom: 10px;
       font-style: italic;
     }
+  }
+
+  tbody {
+    font-size: ${(p) => p.fontSize}px;
+    line-height: ${(p) => p.lineHeigh}px;
   }
 `;
 
@@ -45,10 +56,14 @@ export const RightCell = styled.td`
 export const Exercise: FunctionComponent<ExercisePropsType> = (props) => {
   const id = Utils.randomString();
   const title = props.title ? `${props.title} - ${id}` : `Cvičení ${id}`;
+  const { fontSize, lineHeight } = useStateSlice("view");
 
   return (
     <Container className={"exercise container"}>
-      <ExTable>
+      <ExTable
+        fontSize={fontSize}
+        lineHeigh={lineHeight}
+      >
         <thead>
           <tr>
             <LeftCell as={"th"}>{title}</LeftCell>

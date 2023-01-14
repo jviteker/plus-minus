@@ -61,7 +61,7 @@ export const ExamplesPreview: FunctionComponent<ExamplesPreviewPropsType> = (
         columnsCount,
         examplesPerExercise
       ),
-    [exercisesCount, columnsCount, examplesPerExercise]
+    [exercisesState, viewState]
   );
 
   for (let i = 0; i < exercisesCount; i++) {
