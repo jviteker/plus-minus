@@ -248,8 +248,8 @@ export abstract class ComponentModel<
    * @param newValue
    * @returns False if value was same as current value, true otherwise.
    */
-  protected updateState<ExplicitStateType = StateType>(
-    propPath: ObjectPaths<ExplicitStateType, 4>,
+  protected updateState(
+    propPath: ObjectPaths<StateType, 4>,
     newValue: any,
     // @ts-ignore
     isEqual: typeof this.isEqual = this.isEqual

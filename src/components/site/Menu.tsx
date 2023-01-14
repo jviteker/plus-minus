@@ -1,6 +1,7 @@
 import React, { FunctionComponent, PropsWithChildren } from "react";
 import styled from "styled-components";
-import { useAppState } from "../../state/utils/hooks/useAppState";
+import { useAppStore } from "../../state/utils/hooks/useAppStore";
+import { useStateSlice } from "../../state/utils/hooks/useStateSlice";
 
 export type MenuPropsType = {} & PropsWithChildren;
 
@@ -31,7 +32,12 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
     ...props,
   };
 
-  const [state, store] = useAppState();
+  const store = useAppStore();
+  const exercisesModel = store.getExercisesModel();
+  const viewModel = store.getViewModel();
+
+  const exercisesState = useStateSlice("exercises");
+  const viewState = useStateSlice("view");
 
   return (
     <StyledMenu>
@@ -40,11 +46,11 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           Exercises count:
           <StyledShortInput
             type={"number"}
-            value={state.exercises.count}
+            value={exercisesState.count}
             min={1}
             max={100}
             onChange={(e) => {
-              store.setExercisesCount(Number(e.currentTarget.value));
+              exercisesModel.setExercisesCount(Number(e.currentTarget.value));
             }}
           />
         </label>
@@ -52,11 +58,11 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           Examples per exercise:
           <StyledShortInput
             type={"number"}
-            value={state.exercises.examples.count}
+            value={exercisesState.examples.count}
             min={1}
             max={36}
             onChange={(e) => {
-              store.setExamplesCount(Number(e.currentTarget.value));
+              exercisesModel.setExamplesCount(Number(e.currentTarget.value));
             }}
           />
         </label>
@@ -64,11 +70,11 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           Columns:
           <StyledShortInput
             type={"number"}
-            value={state.layout.columns}
+            value={viewState.layout.columns}
             min={1}
             max={3}
             onChange={(e) => {
-              store.setColumnsCount(Number(e.currentTarget.value));
+              viewModel.setColumnsCount(Number(e.currentTarget.value));
             }}
           />
         </label>

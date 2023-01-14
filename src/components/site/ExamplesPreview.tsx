@@ -12,7 +12,7 @@ import { MinusExamplesGenerator } from "../../model/math/generators/examples/num
 import { PlusExamplesGenerator } from "../../model/math/generators/examples/numbers/PlusExamplesGenerator";
 import { TimesEG } from "../../model/math/generators/examples/numbers/TimesEG";
 import { ExerciseGenerator } from "../../model/math/generators/exercises/ExerciseGenerator";
-import { useAppState } from "../../state/utils/hooks/useAppState";
+import { useStateSlice } from "../../state/utils/hooks/useStateSlice";
 import { Exercise } from "../math/Exercise";
 import { PageLayoutGenerator } from "./PageLayoutGenerator";
 
@@ -46,11 +46,13 @@ export const ExamplesPreview: FunctionComponent<ExamplesPreviewPropsType> = (
     ...props,
   };
 
-  const [state, store] = useAppState();
+  const exercisesState = useStateSlice("exercises");
+  const viewState = useStateSlice("view");
 
-  const exercisesCount = state.exercises.count;
-  const columnsCount = state.layout.columns;
-  const examplesPerExercise = state.exercises.examples.count;
+  const columnsCount = viewState.layout.columns;
+
+  const exercisesCount = exercisesState.count;
+  const examplesPerExercise = exercisesState.examples.count;
 
   const layoutGenerator = useMemo(
     () =>
