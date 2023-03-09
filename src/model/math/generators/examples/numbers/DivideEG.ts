@@ -6,9 +6,7 @@ import { MathSymbol } from "../../../primitives/MathSymbol";
 import { MNumber } from "../../../primitives/MNumber";
 import { AGenerator } from "../AGenerator";
 
-type OperandsRange = [min: number, max: number] | undefined;
-
-type DivideExamplesGeneratorConfig = {
+export type DivideExamplesGeneratorConfig = {
   operands: {
     min: number;
     max: number;
@@ -66,5 +64,9 @@ export class DivideEG extends AGenerator {
       integerOnly ? 0 : 2,
       ...Utils.intersperse(operands, MathSymbol.divide())
     ) as Example;
+  }
+
+  static getDefaultConfig() {
+    return { ...Defaults };
   }
 }

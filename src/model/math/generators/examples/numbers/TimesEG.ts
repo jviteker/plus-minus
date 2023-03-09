@@ -8,7 +8,7 @@ import { AGenerator } from "../AGenerator";
 
 type OperandsRange = [min: number, max: number] | undefined;
 
-type TimesExamplesGeneratorConfig = {
+export type TimesExamplesGeneratorConfig = {
   operands: {
     count: number;
     min: number;
@@ -58,5 +58,9 @@ export class TimesEG extends AGenerator {
       decimalDigits * count,
       ...Utils.intersperse(operands, MathSymbol.times())
     ) as Example;
+  }
+
+  static getDefaultConfig() {
+    return { ...Defaults };
   }
 }

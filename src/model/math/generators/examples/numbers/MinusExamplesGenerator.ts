@@ -6,7 +6,7 @@ import { MathSymbol } from "../../../primitives/MathSymbol";
 import { MNumber } from "../../../primitives/MNumber";
 import { AGenerator } from "../AGenerator";
 
-type MinusExamplesGeneratorConfig = {
+export type MinusExamplesGeneratorConfig = {
   operands: {
     count: number;
     min: number;
@@ -54,5 +54,9 @@ export class MinusExamplesGenerator extends AGenerator {
       decimalDigits,
       ...Utils.intersperse(operands, MathSymbol.minus())
     ) as Example;
+  }
+
+  static getDefaultConfig() {
+    return { ...Defaults };
   }
 }

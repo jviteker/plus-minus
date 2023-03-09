@@ -3,6 +3,9 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { GlobalStyle } from "./style/GlobalStyle";
 
+import { setAutoFreeze } from "immer";
+setAutoFreeze(false);
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <GlobalStyle />

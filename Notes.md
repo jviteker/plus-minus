@@ -1,26 +1,30 @@
 # TODOs
 
+Localization
+
+- EN, CZ
+
+Presets
+
+- Settings should be stored to Local storage
+
+Help
+
+Footer with email
+
+# Done
+
 Menu
 
 - prepare it for more options
+- add dialog component
+- 1st step - list all registered generators
 
 Exercise
 
 - debounce generators
 - which generators to use
   - config for each generator
-
-Presets
-
-- Settings should be stored to Local storage
-
-Localization
-
-- EN, CZ
-
-Help
-
-# Done
 
 ## Layout
 

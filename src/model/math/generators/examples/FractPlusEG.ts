@@ -8,7 +8,7 @@ import { Fraction } from "../../primitives/Fraction";
 import { MathSymbol } from "../../primitives/MathSymbol";
 import { AGenerator } from "./AGenerator";
 
-type FractionsPlusExamplesGeneratorConfig = {
+export type FractionsPlusExamplesGeneratorConfig = {
   operands: {
     count: number;
     nmin: number;
@@ -54,5 +54,9 @@ export class FractPlusEG extends AGenerator {
       new Formula(...[...operandsWithPlus, MathSymbol.equals()]),
       new Formula(resultFraction)
     );
+  }
+
+  static getDefaultConfig() {
+    return { ...Defaults };
   }
 }

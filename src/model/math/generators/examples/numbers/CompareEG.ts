@@ -4,7 +4,7 @@ import { Example } from "../../../primitives/Example";
 import { MNumber } from "../../../primitives/MNumber";
 import { AGenerator } from "../AGenerator";
 
-type CompareExamplesGeneratorConfig = {
+export type CompareExamplesGeneratorConfig = {
   operands: {
     min: number;
     max: number;
@@ -35,6 +35,10 @@ export class CompareEG extends AGenerator {
     const n1 = MNumber.random(min, max, decimalDigits);
     let n2 = MNumber.random(min, max, decimalDigits);
 
+    if (min >= max) {
+      throw new Error("Min >= Max");
+    }
+
     while (n2.toString() === n1.toString()) {
       n2 = MNumber.random(min, max, decimalDigits);
     }
@@ -42,5 +46,9 @@ export class CompareEG extends AGenerator {
     const operands = [n1, n2] as const;
 
     return Example.compare(...(operands as [MNumber, MNumber])) as Example;
+  }
+
+  static getDefaultConfig() {
+    return { ...Defaults };
   }
 }
