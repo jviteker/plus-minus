@@ -32,9 +32,10 @@ const StyledMenu = styled.div`
     top: 0px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #fdfda7;
-    margin-bottom: 2em;
-    padding: 1em;
+    margin-bottom: 1em;
+    padding: 0.8em;
     display: flex;
+    align-items: flex-start;
     z-index: 2;
 
     .viewProps {
@@ -73,7 +74,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
     <>
       {settingsDialogOpen && (
         <Dialog
-          title={"Examples configuration"}
+          title={"Exercises configuration"}
           onClose={() => {
             setSettingsDialogOpen(false);
           }}
@@ -223,14 +224,15 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           </label>
         </div>
         <div className="controls">
-          <span
+          <StyledSettingsIcon
+            size={"1.4em"}
             onClick={() => {
               setSettingsDialogOpen(true);
             }}
-            title={"Exercises settings"}
-          >
-            <StyledSettingsIcon size={"1.4em"} />
-          </span>
+            title={
+              "Exercises settings: Configure more exercises types and their properties."
+            }
+          />
         </div>
       </StyledMenu>
     </>

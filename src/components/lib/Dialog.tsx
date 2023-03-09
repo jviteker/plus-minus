@@ -31,7 +31,7 @@ const StyledDialog = styled.div`
   background-color: white;
   box-shadow: 5px 5px 2px gray;
   //border: 1px solid #666666;
-  width: 80%;
+  width: 80vw;
   position: absolute;
   left: 50%;
   top: 8%;

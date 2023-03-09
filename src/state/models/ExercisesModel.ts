@@ -63,19 +63,19 @@ const DefaultState: Partial<ExercisesModelState> = {
       config: MinusExamplesGenerator.getDefaultConfig(),
     },
     times: {
-      active: true,
+      active: false,
       config: TimesEG.getDefaultConfig(),
     },
     divide: {
-      active: true,
+      active: false,
       config: DivideEG.getDefaultConfig(),
     },
     compare: {
-      active: true,
+      active: false,
       config: CompareEG.getDefaultConfig(),
     },
     fractPlus: {
-      active: true,
+      active: false,
       config: FractPlusEG.getDefaultConfig(),
     },
   },

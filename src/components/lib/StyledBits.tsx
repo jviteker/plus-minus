@@ -14,6 +14,7 @@ export const StyledSelect = styled.select`
   border: none;
   border-bottom: 1px solid gray;
   background-color: transparent;
+  outline: none;
   font-size: 1em;
 `;
 
