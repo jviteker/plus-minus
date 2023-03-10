@@ -10,6 +10,8 @@ Footer with email
 
 ## bugs
 
+- find a way to measure line height more accurately based on exercise settings
+
 # Done
 
 ## bugs
