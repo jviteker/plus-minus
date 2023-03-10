@@ -55,6 +55,8 @@ export class ViewModel extends ComponentModel<ViewModelState> {
 
     const { count } = exercisesModel.getState();
 
+    c = this.clip(c, 1, 3);
+
     this.begin();
     this.updateState("layout.columns", c);
     exercisesModel.setExercisesCount(Math.ceil(count / c) * c);

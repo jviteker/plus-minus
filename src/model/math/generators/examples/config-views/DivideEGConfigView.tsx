@@ -5,6 +5,7 @@ import styled from "styled-components";
 import {
   StyledFlexRow,
   StyledShortInput,
+  StyledShortInputD,
 } from "../../../../../components/lib/StyledBits";
 import { DivideExamplesGeneratorConfig } from "../numbers/DivideEG";
 
@@ -56,14 +57,14 @@ export const DivideEGConfigView: FunctionComponent<ConfigViewPropsType> = (
         <StyledFlexRow className={"config"}>
           <label>
             {t("divide.min")}:
-            <StyledShortInput
+            <StyledShortInputD
               type={"number"}
               value={config.operands.min}
               min={0}
               max={config.operands.max - 1}
-              onChange={(e) => {
+              onChangeDebounced={(v) => {
                 const changed = produce(config, (config) => {
-                  config.operands.min = Number(e.currentTarget.value);
+                  config.operands.min = Number(v);
                 });
 
                 props.onConfigChanged && props.onConfigChanged(changed);
@@ -72,13 +73,13 @@ export const DivideEGConfigView: FunctionComponent<ConfigViewPropsType> = (
           </label>
           <label>
             {t("divide.max")}:
-            <StyledShortInput
+            <StyledShortInputD
               type={"number"}
               value={config.operands.max}
               min={config.operands.min + 1}
-              onChange={(e) => {
+              onChangeDebounced={(v) => {
                 const changed = produce(config, (config) => {
-                  config.operands.max = Number(e.currentTarget.value);
+                  config.operands.max = Number(v);
                 });
 
                 props.onConfigChanged && props.onConfigChanged(changed);
@@ -101,14 +102,14 @@ export const DivideEGConfigView: FunctionComponent<ConfigViewPropsType> = (
           </label>
           <label>
             {t("divide.decimalDigitsCount")}:
-            <StyledShortInput
+            <StyledShortInputD
               type={"number"}
               value={config.operands.decimalDigits}
               disabled={config.result.integerOnly}
               min={0}
-              onChange={(e) => {
+              onChangeDebounced={(v) => {
                 const changed = produce(config, (config) => {
-                  config.operands.decimalDigits = Number(e.currentTarget.value);
+                  config.operands.decimalDigits = Number(v);
                 });
 
                 props.onConfigChanged && props.onConfigChanged(changed);

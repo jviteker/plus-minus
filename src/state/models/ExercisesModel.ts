@@ -11,13 +11,13 @@ import {
   DivideExamplesGeneratorConfig,
 } from "../../model/math/generators/examples/numbers/DivideEG";
 import {
-  MinusExamplesGenerator,
+  MinusEG,
   MinusExamplesGeneratorConfig,
-} from "../../model/math/generators/examples/numbers/MinusExamplesGenerator";
+} from "../../model/math/generators/examples/numbers/MinusEG";
 import {
-  PlusExamplesGenerator,
+  PlusEG,
   PlusExamplesGeneratorConfig,
-} from "../../model/math/generators/examples/numbers/PlusExamplesGenerator";
+} from "../../model/math/generators/examples/numbers/PlusEG";
 import {
   TimesEG,
   TimesExamplesGeneratorConfig,
@@ -56,11 +56,11 @@ const DefaultState: Partial<ExercisesModelState> = {
   generators: {
     plus: {
       active: true,
-      config: PlusExamplesGenerator.getDefaultConfig(),
+      config: PlusEG.getDefaultConfig(),
     },
     minus: {
       active: true,
-      config: MinusExamplesGenerator.getDefaultConfig(),
+      config: MinusEG.getDefaultConfig(),
     },
     times: {
       active: false,
@@ -81,6 +81,8 @@ const DefaultState: Partial<ExercisesModelState> = {
   },
 };
 
+const COUNT_MAX = 100;
+
 export class ExercisesModel extends ComponentModel<ExercisesModelState> {
   constructor() {
     super(DefaultState);
@@ -94,11 +96,13 @@ export class ExercisesModel extends ComponentModel<ExercisesModelState> {
   }
 
   setExamplesCount(c: number) {
-    this.updateState("examples.count", c);
+    this.updateState("examples.count", this.clip(c, 1, 36));
   }
 
   setExercisesCount(c: number) {
     const viewModel = this.getViewModel();
+
+    c = this.clip(c, 1, 100);
 
     const countBefore = this.getState().count;
     const columnsCount = viewModel.getState().layout.columns;

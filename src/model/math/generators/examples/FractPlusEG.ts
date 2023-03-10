@@ -56,7 +56,20 @@ export class FractPlusEG extends AGenerator {
     );
   }
 
-  static getDefaultConfig() {
+  static getDefaultConfig(): FractionsPlusExamplesGeneratorConfig {
     return { ...Defaults };
+  }
+
+  static sanitizeConfig(c: FractionsPlusExamplesGeneratorConfig) {
+    this.clipAll(
+      c,
+      ["operands.count", 2, 5],
+      ["operands.nmin", 0, 100],
+      ["operands.nmax", 0, 100],
+      ["operands.dmin", 0, 100],
+      ["operands.dmax", 0, 100]
+    );
+    this.flipMinMax(c, "operands.nmin", "operands.nmax");
+    this.flipMinMax(c, "operands.dmin", "operands.dmax");
   }
 }

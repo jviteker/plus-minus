@@ -85,6 +85,10 @@ export abstract class ComponentModel<
     } as StateType;
   }
 
+  protected clip(n: number, min: number, max: number) {
+    return Math.max(min, Math.min(max, n));
+  }
+
   /**
    * Do not call this method directly, call it using this.initOnce().
    * This method should be called by the "owning" component, the one which really owns the model.

@@ -38,10 +38,14 @@ export class PageLayoutGenerator {
     const page = this.getPage();
 
     try {
-      page.addExercise(ex);
-    } catch (e) {
-      const newPage = this.createNewPage();
-      newPage.addExercise(ex);
+      try {
+        page.addExercise(ex);
+      } catch (e) {
+        const newPage = this.createNewPage();
+        newPage.addExercise(ex);
+      }
+    } catch (cannot_fit) {
+      throw "new_page_overfilled";
     }
   }
 

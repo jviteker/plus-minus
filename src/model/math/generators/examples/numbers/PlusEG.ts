@@ -6,34 +6,28 @@ import { MathSymbol } from "../../../primitives/MathSymbol";
 import { MNumber } from "../../../primitives/MNumber";
 import { AGenerator } from "../AGenerator";
 
-export type MinusExamplesGeneratorConfig = {
+export type PlusExamplesGeneratorConfig = {
   operands: {
     count: number;
     min: number;
     max: number;
     decimalDigits: number;
   };
-  result: {
-    allowNegative: boolean;
-  };
 };
 
-const Defaults: MinusExamplesGeneratorConfig = {
+const Defaults: PlusExamplesGeneratorConfig = {
   operands: {
     count: 2,
     min: 1,
     max: 10,
     decimalDigits: 0,
   },
-  result: {
-    allowNegative: false,
-  },
 };
 
-export class MinusExamplesGenerator extends AGenerator {
-  private config: MinusExamplesGeneratorConfig;
+export class PlusEG extends AGenerator {
+  private config: PlusExamplesGeneratorConfig;
 
-  constructor(config: DeepPartial<MinusExamplesGeneratorConfig> = {}) {
+  constructor(config: DeepPartial<PlusExamplesGeneratorConfig> = {}) {
     super();
     this.config = _.merge(Defaults, config);
   }
@@ -45,18 +39,25 @@ export class MinusExamplesGenerator extends AGenerator {
       operands.push(MNumber.random(min, max, decimalDigits));
     }
 
-    // sort operands to produce positive result
-    if (count === 2 && !this.config.result.allowNegative) {
-      operands.sort((a, b) => b.getNumericValue() - a.getNumericValue());
-    }
-
     return Example.numericFromFormula(
       decimalDigits,
-      ...Utils.intersperse(operands, MathSymbol.minus())
+      ...Utils.intersperse(operands, MathSymbol.plus())
     ) as Example;
   }
 
+  static sanitizeConfig(c: PlusExamplesGeneratorConfig) {
+    this.clipAll(
+      c,
+      ["operands.count", 2, 5],
+      ["operands.min", 0, 100],
+      ["operands.max", 0, 100],
+      ["operands.decimalDigits", 0, 2]
+    );
+
+    this.flipMinMax(c, "operands.min", "operands.max");
+  }
+
   static getDefaultConfig() {
-    return { ...Defaults };
+    return Defaults;
   }
 }

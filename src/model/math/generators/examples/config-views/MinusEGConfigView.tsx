@@ -5,8 +5,9 @@ import styled from "styled-components";
 import {
   StyledFlexRow,
   StyledShortInput,
+  StyledShortInputD,
 } from "../../../../../components/lib/StyledBits";
-import { MinusExamplesGeneratorConfig } from "../numbers/MinusExamplesGenerator";
+import { MinusExamplesGeneratorConfig } from "../numbers/MinusEG";
 
 type ConfigType = MinusExamplesGeneratorConfig;
 
@@ -59,14 +60,14 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
         <StyledFlexRow className={"config"}>
           <label>
             {t("minus.opsCount")}:
-            <StyledShortInput
+            <StyledShortInputD
               type={"number"}
               value={config.operands.count}
               min={2}
               max={20}
-              onChange={(e) => {
+              onChangeDebounced={(v) => {
                 const changed = produce(config, (config) => {
-                  config.operands.count = Number(e.currentTarget.value);
+                  config.operands.count = Number(v);
                 });
 
                 props.onConfigChanged && props.onConfigChanged(changed);
@@ -75,14 +76,14 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
           </label>
           <label>
             {t("minus.min")}:
-            <StyledShortInput
+            <StyledShortInputD
               type={"number"}
               value={config.operands.min}
               min={0}
               max={config.operands.max - 1}
-              onChange={(e) => {
+              onChangeDebounced={(v) => {
                 const changed = produce(config, (config) => {
-                  config.operands.min = Number(e.currentTarget.value);
+                  config.operands.min = Number(v);
                 });
 
                 props.onConfigChanged && props.onConfigChanged(changed);
@@ -91,13 +92,13 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
           </label>
           <label>
             {t("minus.max")}:
-            <StyledShortInput
+            <StyledShortInputD
               type={"number"}
               value={config.operands.max}
               min={config.operands.min + 1}
-              onChange={(e) => {
+              onChangeDebounced={(v) => {
                 const changed = produce(config, (config) => {
-                  config.operands.max = Number(e.currentTarget.value);
+                  config.operands.max = Number(v);
                 });
 
                 props.onConfigChanged && props.onConfigChanged(changed);
@@ -106,13 +107,13 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
           </label>
           <label>
             {t("minus.decimalDigitsCount")}:
-            <StyledShortInput
+            <StyledShortInputD
               type={"number"}
               value={config.operands.decimalDigits}
               min={0}
-              onChange={(e) => {
+              onChangeDebounced={(v) => {
                 const changed = produce(config, (config) => {
-                  config.operands.decimalDigits = Number(e.currentTarget.value);
+                  config.operands.decimalDigits = Number(v);
                 });
 
                 props.onConfigChanged && props.onConfigChanged(changed);

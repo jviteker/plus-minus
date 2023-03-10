@@ -30,6 +30,11 @@ export const EnDict = {
     dialogTitle: "Exercises configuration",
   },
 
+  errors: {
+    newPageOverfilled:
+      "Sorry, some of the exercises would not fit single page. Please decrease the count of examples per exercise or the font size.",
+  },
+
   plus: {
     name: "Addition",
     opsCount: "Count of operands",

@@ -9,6 +9,9 @@ export class Utils {
     const range = max - min;
 
     const value = Math.random() * range + min;
+    if (value === -0) {
+      return 0;
+    }
 
     return value;
   }

@@ -4,17 +4,20 @@ import {
   ReactElement,
   useMemo,
 } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { AGenerator } from "../../model/math/generators/examples/AGenerator";
 import { FractPlusEG } from "../../model/math/generators/examples/FractPlusEG";
 import { CompareEG } from "../../model/math/generators/examples/numbers/CompareEG";
 import { DivideEG } from "../../model/math/generators/examples/numbers/DivideEG";
-import { MinusExamplesGenerator } from "../../model/math/generators/examples/numbers/MinusExamplesGenerator";
-import { PlusExamplesGenerator } from "../../model/math/generators/examples/numbers/PlusExamplesGenerator";
+import { MinusEG } from "../../model/math/generators/examples/numbers/MinusEG";
+import { PlusEG } from "../../model/math/generators/examples/numbers/PlusEG";
 import { TimesEG } from "../../model/math/generators/examples/numbers/TimesEG";
 import { ExerciseGenerator } from "../../model/math/generators/exercises/ExerciseGenerator";
 import { useStateSlice } from "../../state/utils/hooks/useStateSlice";
+import { StyledError } from "../lib/StyledBits";
 import { Exercise } from "../math/Exercise";
+import { Page, PageContent } from "../math/layout/Layout";
 import { PageLayoutGenerator } from "./PageLayoutGenerator";
 
 export type ExamplesPreviewPropsType = {} & PropsWithChildren;
@@ -41,6 +44,8 @@ export const ExamplesPreview: FunctionComponent<ExamplesPreviewPropsType> = (
   const exercisesState = useStateSlice("exercises", 350);
   const viewState = useStateSlice("view", 350);
 
+  const { t } = useTranslation();
+
   const columnsCount = viewState.layout.columns;
 
   const exercisesCount = exercisesState.count;
@@ -50,8 +55,8 @@ export const ExamplesPreview: FunctionComponent<ExamplesPreviewPropsType> = (
     const { plus, minus, times, divide, compare, fractPlus } =
       exercisesState.generators;
     const generators = [
-      plus.active && new PlusExamplesGenerator(plus.config),
-      minus.active && new MinusExamplesGenerator(minus.config),
+      plus.active && new PlusEG(plus.config),
+      minus.active && new MinusEG(minus.config),
       times.active && new TimesEG(times.config),
       divide.active && new DivideEG(divide.config),
       compare.active && new CompareEG(compare.config),
@@ -72,15 +77,27 @@ export const ExamplesPreview: FunctionComponent<ExamplesPreviewPropsType> = (
   );
 
   for (let i = 0; i < exercisesCount; i++) {
-    layoutGenerator.addExercise(
-      <Exercise
-        key={i}
-        examples={exGen.generate(examplesPerExercise)}
-      />
-    );
+    try {
+      layoutGenerator.addExercise(
+        <Exercise
+          key={i}
+          examples={exGen.generate(examplesPerExercise)}
+        />
+      );
+    } catch (e) {
+      if (e === "new_page_overfilled") {
+        return (
+          <StyledPreview>
+            <Page>
+              <PageContent>
+                <StyledError>{t("errors.newPageOverfilled")}</StyledError>
+              </PageContent>
+            </Page>
+          </StyledPreview>
+        );
+      }
+    }
   }
-
-  const pages: ReactElement[] = layoutGenerator.asReactMarkup();
 
   return <StyledPreview>{layoutGenerator.asReactMarkup()}</StyledPreview>;
 };

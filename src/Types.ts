@@ -32,65 +32,23 @@ type Union<
  * type Keys = NestedPaths<{ a: { b: { c: string } }>
  * // 'a' | 'a.b' | 'a.b.c'
  */
-export type NestedPaths<
+export type ObjectPaths<
   T extends GenericObject,
   Prev extends Primitive | undefined = undefined,
   Path extends Primitive | undefined = undefined
 > = {
   [K in keyof T]: T[K] extends GenericObject
-    ? NestedPaths<T[K], Union<Prev, Path>, Join<Path, K>>
+    ? ObjectPaths<T[K], Union<Prev, Path>, Join<Path, K>>
     : // : Join<Path, K>;
       Union<Union<Prev, Path>, Join<Path, K>>;
 }[keyof T];
 
-const SS = Symbol("sakra");
-
-const X = {
-  a: {
-    a: SS,
-    arr: [1, 2, 3],
-    [SS]: true,
-    b: {
-      c: {
-        a: [1, 2, 5],
-        d: {
-          e: {
-            f: true,
-          },
-        },
-      },
-      x: true,
-    },
-  },
-  y: {
-    a: {
-      b: {
-        c: {
-          d: {
-            e: {
-              f: {
-                a: {
-                  b: {
-                    c: {
-                      d: {
-                        e: {
-                          f: true,
-                        },
-                      },
-                    },
-                    x: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-        x: true,
-      },
-    },
-  },
-};
-
-type TX = typeof X;
-
-type A = NestedPaths<TX>;
+export type ObjectLeaves<
+  T extends GenericObject,
+  Prev extends Primitive | undefined = undefined,
+  Path extends Primitive | undefined = undefined
+> = {
+  [K in keyof T]: T[K] extends GenericObject
+    ? ObjectLeaves<T[K], Union<Prev, Path>, Join<Path, K>>
+    : Join<Path, K>;
+}[keyof T];

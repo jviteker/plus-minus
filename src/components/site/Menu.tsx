@@ -8,6 +8,12 @@ import { FractPlusEGConfigView } from "../../model/math/generators/examples/conf
 import { MinusEGConfigView } from "../../model/math/generators/examples/config-views/MinusEGConfigView";
 import { PlusEGConfigView } from "../../model/math/generators/examples/config-views/PlusEGConfigView";
 import { TimesEGConfigView } from "../../model/math/generators/examples/config-views/TimesEGConfigView";
+import { FractPlusEG } from "../../model/math/generators/examples/FractPlusEG";
+import { CompareEG } from "../../model/math/generators/examples/numbers/CompareEG";
+import { DivideEG } from "../../model/math/generators/examples/numbers/DivideEG";
+import { MinusEG } from "../../model/math/generators/examples/numbers/MinusEG";
+import { PlusEG } from "../../model/math/generators/examples/numbers/PlusEG";
+import { TimesEG } from "../../model/math/generators/examples/numbers/TimesEG";
 import { ViewSizePresetName } from "../../state/models/ViewModel";
 import { useAppStore } from "../../state/utils/hooks/useAppStore";
 import { useStateSlice } from "../../state/utils/hooks/useStateSlice";
@@ -94,6 +100,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           <PlusEGConfigView
             config={exercisesState.generators.plus.config}
             onConfigChanged={(c) => {
+              PlusEG.sanitizeConfig(c);
               exercisesModel.setGeneratorConfig("plus", c);
             }}
             active={exercisesState.generators.plus.active}
@@ -105,6 +112,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           <MinusEGConfigView
             config={exercisesState.generators.minus.config}
             onConfigChanged={(c) => {
+              MinusEG.sanitizeConfig(c);
               exercisesModel.setGeneratorConfig("minus", c);
             }}
             active={exercisesState.generators.minus.active}
@@ -116,6 +124,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           <TimesEGConfigView
             config={exercisesState.generators.times.config}
             onConfigChanged={(c) => {
+              TimesEG.sanitizeConfig(c);
               exercisesModel.setGeneratorConfig("times", c);
             }}
             active={exercisesState.generators.times.active}
@@ -127,6 +136,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           <DivideEGConfigView
             config={exercisesState.generators.divide.config}
             onConfigChanged={(c) => {
+              DivideEG.sanitizeConfig(c);
               exercisesModel.setGeneratorConfig("divide", c);
             }}
             active={exercisesState.generators.divide.active}
@@ -138,6 +148,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           <CompareEGConfigView
             config={exercisesState.generators.compare.config}
             onConfigChanged={(c) => {
+              CompareEG.sanitizeConfig(c);
               exercisesModel.setGeneratorConfig("compare", c);
             }}
             active={exercisesState.generators.compare.active}
@@ -149,6 +160,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           <FractPlusEGConfigView
             config={exercisesState.generators.fractPlus.config}
             onConfigChanged={(c) => {
+              FractPlusEG.sanitizeConfig(c);
               exercisesModel.setGeneratorConfig("fractPlus", c);
             }}
             active={exercisesState.generators.fractPlus.active}

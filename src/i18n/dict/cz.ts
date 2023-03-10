@@ -30,6 +30,11 @@ export const CzDict: DictType = {
   settings: {
     dialogTitle: "Nastavení",
   },
+
+  errors: {
+    newPageOverfilled:
+      "Omlouváme se, ale některá cvičení se nevlezou na jednu stránku. Zmenšete prosím počet příkladů ve cvičení nebo velikost písma.",
+  },
   plus: {
     name: "Sčítání",
     opsCount: "Počet členů",

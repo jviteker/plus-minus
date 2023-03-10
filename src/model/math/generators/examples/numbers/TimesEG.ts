@@ -63,4 +63,15 @@ export class TimesEG extends AGenerator {
   static getDefaultConfig() {
     return { ...Defaults };
   }
+
+  static sanitizeConfig(c: TimesExamplesGeneratorConfig) {
+    this.clipAll(
+      c,
+      ["operands.count", 2, 5],
+      ["operands.min", 0, 100],
+      ["operands.max", 0, 100],
+      ["operands.decimalDigits", 0, 2]
+    );
+    this.flipMinMax(c, "operands.min", "operands.max");
+  }
 }

@@ -18,7 +18,11 @@ export class MNumber extends MathSymbol {
   }
 
   static create(val: number, precision: number = 0) {
-    const asText = val.toFixed(precision);
+    let asText = val.toFixed(precision);
+    if (asText === "-0") {
+      asText = "0";
+    }
+
     return new this(asText, undefined, precision);
   }
 

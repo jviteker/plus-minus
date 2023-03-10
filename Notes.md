@@ -1,9 +1,5 @@
 # TODOs
 
-Localization
-
-- EN, CZ
-
 Presets
 
 - Settings should be stored to Local storage
@@ -12,7 +8,20 @@ Help
 
 Footer with email
 
+## bugs
+
 # Done
+
+## bugs
+
+- iputs min and max not working properly
+- when examples too large they overflow page
+  - 20 operands count, large font
+- catch page overflow exception
+
+Localization
+
+- EN, CZ
 
 Menu
 
