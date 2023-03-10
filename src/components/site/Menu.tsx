@@ -80,7 +80,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
   const exercisesState = useStateSlice("exercises");
   const viewState = useStateSlice("view");
 
-  const [settingsDialogOpen, setSettingsDialogOpen] = useState(true);
+  const [settingsDialogOpen, setSettingsDialogOpen] = useState(false);
 
   return (
     <>
