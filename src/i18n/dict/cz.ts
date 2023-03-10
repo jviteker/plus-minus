@@ -35,6 +35,9 @@ export const CzDict: DictType = {
     newPageOverfilled:
       "Omlouváme se, ale některá cvičení se nevlezou na jednu stránku. Zmenšete prosím počet příkladů ve cvičení nebo velikost písma.",
   },
+  contact: {
+    main: "Kontakt, podněty, připomínky, hlášení chyb",
+  },
   plus: {
     name: "Sčítání",
     opsCount: "Počet členů",

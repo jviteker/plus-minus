@@ -35,6 +35,10 @@ export const EnDict = {
       "Sorry, some of the exercises would not fit single page. Please decrease the count of examples per exercise or the font size.",
   },
 
+  contact: {
+    main: "Contact, suggestions, bugs reports",
+  },
+
   plus: {
     name: "Addition",
     opsCount: "Count of operands",

@@ -6,8 +6,6 @@ Presets
 
 Help
 
-Footer with email
-
 ## bugs
 
 - find a way to measure line height more accurately based on exercise settings
@@ -20,6 +18,8 @@ Footer with email
 - when examples too large they overflow page
   - 20 operands count, large font
 - catch page overflow exception
+
+Footer with email
 
 Localization
 
