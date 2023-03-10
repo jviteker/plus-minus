@@ -4,6 +4,9 @@ import App from "./App";
 import { GlobalStyle } from "./style/GlobalStyle";
 
 import { setAutoFreeze } from "immer";
+
+import "./i18n/i18n";
+
 setAutoFreeze(false);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

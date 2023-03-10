@@ -1010,6 +1010,13 @@ html-encoding-sniffer@^3.0.0:
   dependencies:
     whatwg-encoding "^2.0.0"
 
+html-parse-stringify@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz#dfc1017347ce9f77c8141a507f233040c59c55d2"
+  integrity sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==
+  dependencies:
+    void-elements "3.1.0"
+
 http-proxy-agent@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/http-proxy-agent/-/http-proxy-agent-5.0.0.tgz#5129800203520d434f142bc78ff3c170800f2b43"
@@ -1026,6 +1033,13 @@ https-proxy-agent@^5.0.1:
   dependencies:
     agent-base "6"
     debug "4"
+
+i18next@^22.4.11:
+  version "22.4.11"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.4.11.tgz#8b6c9be95176de90d3f10a78af125d95d3a3258d"
+  integrity sha512-ShfTzXVMjXdF2iPiT/wbizOrssLh9Ab6VpuVROihLCAu+u25KbZiEYVgsA0W6g0SgjPa/JmGWcUEV/g6cKzEjQ==
+  dependencies:
+    "@babel/runtime" "^7.20.6"
 
 iconv-lite@0.6.3:
   version "0.6.3"
@@ -1473,6 +1487,14 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-i18next@^12.2.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-12.2.0.tgz#010e3f6070b8d700442947233352ebe4b252d7a1"
+  integrity sha512-5XeVgSygaGfyFmDd2WcXvINRw2WEC1XviW1LXY/xLOEMzsCFRwKqfnHN+hUjla8ZipbVJR27GCMSuTr0BhBBBQ==
+  dependencies:
+    "@babel/runtime" "^7.20.6"
+    html-parse-stringify "^3.0.1"
+
 react-icons@*, react-icons@^4.8.0:
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.8.0.tgz#621e900caa23b912f737e41be57f27f6b2bff445"
@@ -1809,6 +1831,11 @@ vitest@^0.26.2:
     tinyspy "^1.0.2"
     vite "^3.0.0 || ^4.0.0"
     vite-node "0.26.2"
+
+void-elements@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-3.1.0.tgz#614f7fbf8d801f0bb5f0661f5b2f5785750e4f09"
+  integrity sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==
 
 w3c-xmlserializer@^4.0.0:
   version "4.0.0"

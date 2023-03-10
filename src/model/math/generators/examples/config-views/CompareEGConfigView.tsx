@@ -1,5 +1,6 @@
 import produce from "immer";
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import {
   StyledFlexRow,
@@ -35,12 +36,13 @@ export const CompareEGConfigView: FunctionComponent<ConfigViewPropsType> = (
   };
 
   const { config, active } = props;
-
+  const { t } = useTranslation();
+  // {t("compare.")}
   return (
     <StyledContainer>
       <StyledFlexRow>
         <label>
-          <b>Compare numbers</b>
+          <b>{t("compare.name")}</b>
           <StyledShortInput
             type={"checkbox"}
             checked={active}
@@ -53,7 +55,7 @@ export const CompareEGConfigView: FunctionComponent<ConfigViewPropsType> = (
       {active && (
         <StyledFlexRow className={"config"}>
           <label>
-            Min. value:
+            {t("compare.min")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.min}
@@ -69,7 +71,7 @@ export const CompareEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Max. value:
+            {t("compare.max")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.max}
@@ -85,7 +87,7 @@ export const CompareEGConfigView: FunctionComponent<ConfigViewPropsType> = (
           </label>
 
           <label>
-            Decimal digits count:
+            {t("compare.decimalDigitsCount")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.decimalDigits}

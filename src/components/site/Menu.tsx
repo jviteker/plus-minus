@@ -1,5 +1,6 @@
 import { FunctionComponent, PropsWithChildren, useState } from "react";
-import { FaCog } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+import { FaCog, FaFlag } from "react-icons/fa";
 import styled from "styled-components";
 import { CompareEGConfigView } from "../../model/math/generators/examples/config-views/CompareEGConfigView";
 import { DivideEGConfigView } from "../../model/math/generators/examples/config-views/DivideEGConfigView";
@@ -18,6 +19,15 @@ export type MenuPropsType = {} & PropsWithChildren;
 const Defaults: Partial<MenuPropsType> = {};
 
 const StyledSettingsIcon = styled(FaCog)`
+  cursor: pointer;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const StyledLanguageIcon = styled(FaFlag)`
   cursor: pointer;
   opacity: 0.6;
 
@@ -61,6 +71,8 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
     ...props,
   };
 
+  const { t, i18n } = useTranslation();
+
   const store = useAppStore();
   const exercisesModel = store.getExercisesModel();
   const viewModel = store.getViewModel();
@@ -68,13 +80,13 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
   const exercisesState = useStateSlice("exercises");
   const viewState = useStateSlice("view");
 
-  const [settingsDialogOpen, setSettingsDialogOpen] = useState(false);
+  const [settingsDialogOpen, setSettingsDialogOpen] = useState(true);
 
   return (
     <>
       {settingsDialogOpen && (
         <Dialog
-          title={"Exercises configuration"}
+          title={`${t("settings.dialogTitle")}`}
           onClose={() => {
             setSettingsDialogOpen(false);
           }}
@@ -149,7 +161,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
       <StyledMenu>
         <div className="viewProps">
           <label>
-            Exercises count:
+            {t("menu.options.exCount")}:
             <StyledShortInput
               type={"number"}
               value={exercisesState.count}
@@ -161,7 +173,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
             />
           </label>
           <label>
-            Examples per exercise:
+            {t("menu.options.examplesPerEx")}:
             <StyledShortInput
               type={"number"}
               value={exercisesState.examples.count}
@@ -173,7 +185,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
             />
           </label>
           <label>
-            Columns:
+            {t("menu.options.columns")}:
             <StyledShortInput
               type={"number"}
               value={viewState.layout.columns}
@@ -186,7 +198,7 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           </label>
 
           <label>
-            Font size:
+            {t("menu.options.fontSize.main")}:
             <StyledSelect
               value={viewState.presetName}
               onChange={(e) => {
@@ -201,19 +213,16 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
                     key={presetName}
                     value={presetName}
                   >
-                    {presetName}
+                    {/* @ts-ignore */}
+                    {t(`menu.options.fontSize.${presetName}`)}
                   </option>
                 );
               })}
             </StyledSelect>
           </label>
 
-          <label
-            title={
-              "Adjusts the orientation of even pages to align the cut lines for double-sided printing."
-            }
-          >
-            Double sided print:
+          <label title={t("menu.options.doubleSidedPrint.title")}>
+            {t("menu.options.doubleSidedPrint.main")}:
             <StyledShortInput
               type={"checkbox"}
               checked={viewState.layout.doubleSidedPrint}
@@ -229,9 +238,15 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
             onClick={() => {
               setSettingsDialogOpen(true);
             }}
-            title={
-              "Exercises settings: Configure more exercises types and their properties."
-            }
+            title={t("menu.icons.settings")}
+          />
+          <StyledLanguageIcon
+            size={"1.4em"}
+            onClick={() => {
+              const targetLanguage = i18n.language === "en" ? "cz" : "en";
+              i18n.changeLanguage(targetLanguage);
+            }}
+            title={t("menu.icons.language")}
           />
         </div>
       </StyledMenu>

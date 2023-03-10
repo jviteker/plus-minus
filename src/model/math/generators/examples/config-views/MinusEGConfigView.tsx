@@ -1,5 +1,6 @@
 import produce from "immer";
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import {
   StyledFlexRow,
@@ -34,13 +35,17 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
     ...props,
   };
 
+  const { t } = useTranslation();
+
   const { config, active } = props;
+
+  // {t("minus.")}
 
   return (
     <StyledContainer>
       <StyledFlexRow>
         <label>
-          <b>Subtraction</b>
+          <b>{t("minus.name")}</b>
           <StyledShortInput
             type={"checkbox"}
             checked={active}
@@ -53,7 +58,7 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
       {active && (
         <StyledFlexRow className={"config"}>
           <label>
-            Count of operands:
+            {t("minus.opsCount")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.count}
@@ -69,7 +74,7 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Min. value:
+            {t("minus.min")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.min}
@@ -85,7 +90,7 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Max. value:
+            {t("minus.max")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.max}
@@ -100,7 +105,7 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Decimal digits count:
+            {t("minus.decimalDigitsCount")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.decimalDigits}
@@ -116,7 +121,7 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
           </label>
 
           <label>
-            Alow negative result:
+            {t("minus.allowNegativeResults")}:
             <StyledShortInput
               type={"checkbox"}
               checked={config.result.allowNegative}

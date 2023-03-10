@@ -8,6 +8,10 @@ export const StyledShortInput = styled.input`
   outline: none;
   font-size: 1em;
   background-color: transparent;
+
+  &:disabled {
+    color: #cccccc;
+  }
 `;
 
 export const StyledSelect = styled.select`

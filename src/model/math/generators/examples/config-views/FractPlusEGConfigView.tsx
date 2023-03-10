@@ -1,5 +1,6 @@
 import produce from "immer";
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import {
   StyledFlexRow,
@@ -35,12 +36,14 @@ export const FractPlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
   };
 
   const { config, active } = props;
+  const { t } = useTranslation();
+  // {t("fractPlus.")}
 
   return (
     <StyledContainer>
       <StyledFlexRow>
         <label>
-          <b>Fractions addition</b>
+          <b>{t("fractPlus.name")}</b>
           <StyledShortInput
             type={"checkbox"}
             checked={active}
@@ -53,7 +56,7 @@ export const FractPlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
       {active && (
         <StyledFlexRow className={"config"}>
           <label>
-            Count of operands:
+            {t("fractPlus.opsCount")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.count}
@@ -69,7 +72,7 @@ export const FractPlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Nominator min. value:
+            {t("fractPlus.nmin")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.nmin}
@@ -85,7 +88,7 @@ export const FractPlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Nominator max. value:
+            {t("fractPlus.nmax")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.nmax}
@@ -100,7 +103,7 @@ export const FractPlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Denominator min. value:
+            {t("fractPlus.dmin")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.dmin}
@@ -116,7 +119,7 @@ export const FractPlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Denominator max. value:
+            {t("fractPlus.dmax")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.dmax}

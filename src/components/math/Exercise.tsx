@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { Example } from "../../model/math/primitives/Example";
 import { Utils } from "../../model/utils/Utils";
@@ -54,8 +55,12 @@ export const RightCell = styled.td`
 `;
 
 export const Exercise: FunctionComponent<ExercisePropsType> = (props) => {
+  const { t } = useTranslation();
+
   const id = Utils.randomString();
-  const title = props.title ? `${props.title} - ${id}` : `Cvičení ${id}`;
+  const title = props.title
+    ? `${props.title} - ${id}`
+    : `${t("payload.ex")} ${id}`;
   const { fontSize, lineHeight } = useStateSlice("view");
 
   return (

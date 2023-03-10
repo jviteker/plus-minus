@@ -1,5 +1,6 @@
 import produce from "immer";
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import {
   StyledFlexRow,
@@ -35,12 +36,14 @@ export const TimesEGConfigView: FunctionComponent<ConfigViewPropsType> = (
   };
 
   const { config, active } = props;
+  const { t } = useTranslation();
+  // {t("times.")}
 
   return (
     <StyledContainer>
       <StyledFlexRow>
         <label>
-          <b>Multiplication</b>
+          <b>{t("times.name")}</b>
           <StyledShortInput
             type={"checkbox"}
             checked={active}
@@ -53,7 +56,7 @@ export const TimesEGConfigView: FunctionComponent<ConfigViewPropsType> = (
       {active && (
         <StyledFlexRow className={"config"}>
           <label>
-            Count of operands:
+            {t("times.opsCount")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.count}
@@ -69,7 +72,7 @@ export const TimesEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Min. value:
+            {t("times.min")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.min}
@@ -85,7 +88,7 @@ export const TimesEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Max. value:
+            {t("times.max")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.max}
@@ -100,7 +103,7 @@ export const TimesEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Decimal digits count:
+            {t("times.decimalDigitsCount")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.decimalDigits}

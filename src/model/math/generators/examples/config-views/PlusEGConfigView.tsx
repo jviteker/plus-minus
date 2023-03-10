@@ -1,5 +1,6 @@
 import produce from "immer";
 import React, { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import {
   StyledFlexRow,
@@ -37,13 +38,15 @@ export const PlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
     ...props,
   };
 
+  const { t } = useTranslation();
+
   const { config, active } = props;
 
   return (
     <StyledContainer>
       <StyledFlexRow>
         <label>
-          <b>Addition</b>
+          <b>{t("plus.name")}</b>
           <StyledShortInput
             type={"checkbox"}
             checked={active}
@@ -56,7 +59,7 @@ export const PlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
       {active && (
         <StyledFlexRow className={"config"}>
           <label>
-            Count of operands:
+            {t("plus.opsCount")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.count}
@@ -72,7 +75,7 @@ export const PlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Min. value:
+            {t("plus.min")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.min}
@@ -88,7 +91,7 @@ export const PlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Max. value:
+            {t("plus.max")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.max}
@@ -103,7 +106,7 @@ export const PlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Decimal digits count:
+            {t("plus.decimalDigitsCount")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.decimalDigits}

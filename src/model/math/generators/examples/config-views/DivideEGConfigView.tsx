@@ -1,5 +1,6 @@
 import produce from "immer";
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import {
   StyledFlexRow,
@@ -35,12 +36,13 @@ export const DivideEGConfigView: FunctionComponent<ConfigViewPropsType> = (
   };
 
   const { config, active } = props;
-
+  const { t } = useTranslation();
+  // {t("divide.")}
   return (
     <StyledContainer>
       <StyledFlexRow>
         <label>
-          <b>Division</b>
+          <b>{t("divide.name")}</b>
           <StyledShortInput
             type={"checkbox"}
             checked={active}
@@ -53,7 +55,7 @@ export const DivideEGConfigView: FunctionComponent<ConfigViewPropsType> = (
       {active && (
         <StyledFlexRow className={"config"}>
           <label>
-            Divider or result min. value:
+            {t("divide.min")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.min}
@@ -69,7 +71,7 @@ export const DivideEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Divider or result max. value:
+            {t("divide.max")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.max}
@@ -84,7 +86,7 @@ export const DivideEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Integer result:
+            {t("divide.integerResults")}:
             <StyledShortInput
               type={"checkbox"}
               checked={config.result.integerOnly}
@@ -98,7 +100,7 @@ export const DivideEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             />
           </label>
           <label>
-            Decimal digits count:
+            {t("divide.decimalDigitsCount")}:
             <StyledShortInput
               type={"number"}
               value={config.operands.decimalDigits}
