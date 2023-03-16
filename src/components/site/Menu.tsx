@@ -44,7 +44,7 @@ const StyledLanguageIcon = styled(FaFlag)`
 
 const StyledMenu = styled.div`
   @media screen {
-    min-width: 215mm;
+    /* min-width: 215mm; */
     position: sticky;
     top: 0px;
     font-family: Arial, Helvetica, sans-serif;

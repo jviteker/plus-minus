@@ -34,7 +34,7 @@ const StyledDialog = styled.div`
   width: 80vw;
   min-width: 300px;
   position: absolute;
-  left: 50%;
+  left: 50vw;
   top: 8%;
   transform: translate(-50%, 0%);
 
