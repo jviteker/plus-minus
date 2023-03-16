@@ -42,6 +42,7 @@ export class ViewModel extends ComponentModel<ViewModelState> {
   constructor() {
     super(DefaultState);
     this.setViewSizePreset(DefaultState.presetName || "normal");
+    this.syncFeel();
   }
 
   public __init(...params: any[]): void {}

@@ -6,8 +6,8 @@ import { Menu } from "./components/site/Menu";
 function App() {
   return (
     <>
-      <Menu></Menu>
-      <ExamplesPreview></ExamplesPreview>
+      <Menu />
+      <ExamplesPreview />
       <Footer />
     </>
   );

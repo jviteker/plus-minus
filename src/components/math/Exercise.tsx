@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { Example } from "../../model/math/primitives/Example";
 import { Utils } from "../../model/utils/Utils";
-import { useStateSlice } from "../../state/utils/hooks/useStateSlice";
+import { useAppStore } from "../../state/utils/hooks/useAppStore";
 import { ExampleRow } from "./ExampleRow";
 import { VerticalCut } from "./layout/Layout";
 
@@ -61,7 +61,9 @@ export const Exercise: FunctionComponent<ExercisePropsType> = (props) => {
   const title = props.title
     ? `${props.title} - ${id}`
     : `${t("payload.ex")} ${id}`;
-  const { fontSize, lineHeight } = useStateSlice("view");
+
+  const store = useAppStore();
+  const { fontSize, lineHeight } = store.getState()["view"];
 
   return (
     <Container className={"exercise container"}>

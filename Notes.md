@@ -4,7 +4,9 @@ Presets
 
 - Settings should be stored to Local storage
 
-Help
+Help/about page
+
+- bugs page
 
 ## bugs
 
@@ -14,6 +16,7 @@ Help
 
 ## bugs
 
+- prevent double re-render when font-size is changed
 - iputs min and max not working properly
 - when examples too large they overflow page
   - 20 operands count, large font
