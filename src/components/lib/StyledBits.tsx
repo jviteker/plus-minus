@@ -39,7 +39,16 @@ export const StyledSelect = styled.select`
 
 export const StyledFlexRow = styled.div`
   display: flex;
-  gap: 2em;
+  flex-wrap: wrap;
+  gap: 0.5em 2em;
+
+  label {
+    width: 100%;
+
+    @media (min-width: 210mm) {
+      width: auto;
+    }
+  }
 `;
 
 export const StyledError = styled.h2`

@@ -32,6 +32,7 @@ const StyledDialog = styled.div`
   box-shadow: 5px 5px 2px gray;
   //border: 1px solid #666666;
   width: 80vw;
+  min-width: 300px;
   position: absolute;
   left: 50%;
   top: 8%;

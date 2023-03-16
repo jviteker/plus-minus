@@ -44,6 +44,7 @@ const StyledLanguageIcon = styled(FaFlag)`
 
 const StyledMenu = styled.div`
   @media screen {
+    min-width: 215mm;
     position: sticky;
     top: 0px;
     font-family: Arial, Helvetica, sans-serif;
@@ -52,11 +53,21 @@ const StyledMenu = styled.div`
     padding: 0.8em;
     display: flex;
     align-items: flex-start;
+
     z-index: 2;
 
     .viewProps {
       display: flex;
-      gap: 1em;
+      flex-wrap: wrap;
+      gap: 0.5em 1em;
+
+      label {
+        width: 100%;
+
+        @media (min-width: 210mm) {
+          width: auto;
+        }
+      }
       flex-grow: 1;
     }
 
@@ -64,6 +75,10 @@ const StyledMenu = styled.div`
       display: flex;
       gap: 1em;
     }
+
+    /* @media (min-width: 210mm) {
+      color: red;
+    } */
   }
 
   @media print {
