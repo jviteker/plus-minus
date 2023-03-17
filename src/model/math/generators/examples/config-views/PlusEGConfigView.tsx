@@ -74,7 +74,7 @@ export const PlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
           </label>
 
           <label>
-            {t("plus.resultBetween")}::
+            {t("plus.resultBetween")}:
             <StyledShortInputD
               type={"number"}
               value={config.result.min}
