@@ -41,13 +41,26 @@ export class MinusEG extends AGenerator {
   generate(): Example {
     const { max, min, decimalDigits, count } = this.config.operands;
     const operands: MNumber[] = [];
-    for (let i = 0; i < count; i++) {
-      operands.push(MNumber.random(min, max, decimalDigits));
-    }
 
-    // sort operands to produce positive result
-    if (count === 2 && !this.config.result.allowNegative) {
-      operands.sort((a, b) => b.getNumericValue() - a.getNumericValue());
+    // reversed approach
+    // positive results, multiple operators
+
+    if (!this.config.result.allowNegative) {
+      let start = MNumber.random(count - 1, max, decimalDigits);
+      let remaining = start.getNumericValue();
+
+      operands.push(start);
+
+      for (let i = 1; i < count; i++) {
+        const maxLimit = remaining - (count - 1 - i);
+        const another = MNumber.random(min, maxLimit, decimalDigits);
+        operands.push(another);
+        remaining = remaining - another.getNumericValue();
+      }
+    } else {
+      for (let i = 0; i < count; i++) {
+        operands.push(MNumber.random(min, max, decimalDigits));
+      }
     }
 
     return Example.numericFromFormula(
