@@ -88,7 +88,7 @@ export const PlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
                 props.onConfigChanged && props.onConfigChanged(changed);
               }}
             />
-            &nbsp; {t("and")}: &nbsp;
+            &nbsp; {t("and")} &nbsp;
             <StyledShortInputD
               type={"number"}
               min={config.result.min + 1}
