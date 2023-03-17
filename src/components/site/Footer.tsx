@@ -29,7 +29,8 @@ export const Footer: FunctionComponent<FooterPropsType> = (props) => {
 
   return (
     <StyledFooter>
-      {t("contact.main")}: Jaromír Viteker - plus-minus.cz@seznam.cz
+      {t("contact.main")}: Jaromír Viteker -{" "}
+      <a href="mailto:plus-minus.cz@seznam.cz">plus-minus.cz@seznam.cz</a>
     </StyledFooter>
   );
 };
