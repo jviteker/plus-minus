@@ -38,12 +38,16 @@ export const CzDict: DictType = {
   contact: {
     main: "Kontakt, podněty, připomínky, hlášení chyb",
   },
+
+  and: "a",
+
   plus: {
     name: "Sčítání",
     opsCount: "Počet členů",
     min: "Min. hondota",
     max: "Max. hodnota",
     decimalDigitsCount: "Počet desetinných míst",
+    resultBetween: "Výsledek mezi",
   },
 
   minus: {

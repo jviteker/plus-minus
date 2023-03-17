@@ -72,7 +72,38 @@ export const PlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
               }}
             />
           </label>
+
           <label>
+            {t("plus.resultBetween")}::
+            <StyledShortInputD
+              type={"number"}
+              value={config.result.min}
+              min={0}
+              max={config.result.max - 1}
+              onChangeDebounced={(v) => {
+                const changed = produce(config, (config) => {
+                  config.result.min = Number(v);
+                });
+
+                props.onConfigChanged && props.onConfigChanged(changed);
+              }}
+            />
+            &nbsp; {t("and")}: &nbsp;
+            <StyledShortInputD
+              type={"number"}
+              min={config.result.min + 1}
+              value={config.result.max}
+              onChangeDebounced={(v) => {
+                const changed = produce(config, (config) => {
+                  config.result.max = Number(v);
+                });
+
+                props.onConfigChanged && props.onConfigChanged(changed);
+              }}
+            />
+          </label>
+
+          {/* <label>
             {t("plus.min")}:
             <StyledShortInputD
               type={"number"}
@@ -102,7 +133,7 @@ export const PlusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
                 props.onConfigChanged && props.onConfigChanged(changed);
               }}
             />
-          </label>
+          </label> */}
           <label>
             {t("plus.decimalDigitsCount")}:
             <StyledShortInputD

@@ -39,12 +39,15 @@ export const EnDict = {
     main: "Contact, suggestions, bugs reports",
   },
 
+  and: "and",
+
   plus: {
     name: "Addition",
     opsCount: "Count of operands",
     min: "Min. value",
     max: "Max. value",
     decimalDigitsCount: "Count of decimal digits",
+    resultBetween: "Result between",
   },
 
   minus: {
