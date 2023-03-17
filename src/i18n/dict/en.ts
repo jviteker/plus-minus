@@ -20,6 +20,7 @@ export const EnDict = {
       settings:
         "Exercises settings: Configure more exercises types and their properties.",
       language: "Česky",
+      print: "Print",
     },
   },
   payload: {

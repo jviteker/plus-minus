@@ -1,6 +1,6 @@
 import { FunctionComponent, PropsWithChildren, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FaCog, FaFlag } from "react-icons/fa";
+import { FaCog, FaFlag, FaPrint } from "react-icons/fa";
 import styled from "styled-components";
 import { CompareEGConfigView } from "../../model/math/generators/examples/config-views/CompareEGConfigView";
 import { DivideEGConfigView } from "../../model/math/generators/examples/config-views/DivideEGConfigView";
@@ -34,6 +34,15 @@ const StyledSettingsIcon = styled(FaCog)`
 `;
 
 const StyledLanguageIcon = styled(FaFlag)`
+  cursor: pointer;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const StyledPrintIcon = styled(FaPrint)`
   cursor: pointer;
   opacity: 0.6;
 
@@ -260,6 +269,13 @@ export const Menu: FunctionComponent<MenuPropsType> = (props) => {
           </label>
         </div>
         <div className="controls">
+          <StyledPrintIcon
+            size={"1.4em"}
+            onClick={() => {
+              window.print();
+            }}
+            title={t("menu.icons.print")}
+          />
           <StyledSettingsIcon
             size={"1.4em"}
             onClick={() => {

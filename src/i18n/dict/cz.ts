@@ -22,6 +22,7 @@ export const CzDict: DictType = {
       settings:
         "Nastavení: Nakonfigurujte si více typů příkladů a jejich vlastnosti.",
       language: "English",
+      print: "Tisknout",
     },
   },
   payload: {
