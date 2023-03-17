@@ -15,7 +15,7 @@ export const CzDict: DictType = {
       doubleSidedPrint: {
         main: "Oboustranný tisk",
         title:
-          "Vykreslí sudé stránky tak, aby šli výsledky odstříhnout při oboustranném tisku.",
+          "Vykreslí sudé stránky tak, aby šly při oboustranném tisku odstříhnout výsledky.",
       },
     },
     icons: {
