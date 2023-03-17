@@ -13,7 +13,7 @@ export const EnDict = {
       doubleSidedPrint: {
         main: "Double sided print",
         title:
-          "Adjusts the orientation of even pages to align the cut lines for double-sided printing.",
+          "It renders even pages so that the results can be cut off when printing on both sides.",
       },
     },
     icons: {
