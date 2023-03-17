@@ -54,8 +54,7 @@ export const EnDict = {
   minus: {
     name: "Subtraction",
     opsCount: "Count of operands",
-    min: "Min. value",
-    max: "Max. value",
+    operandsBetween: "Operands between",
     decimalDigitsCount: "Count of decimal digits",
     allowNegativeResults: "Allow negative results",
   },

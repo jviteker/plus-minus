@@ -16,7 +16,7 @@ export const StyledShortInput = styled.input`
 `;
 
 export const StyledShortInputD = styled(Input)`
-  width: 3em;
+  width: 2.8em;
   border: none;
   border-bottom: 1px solid gray;
   text-align: right;

@@ -46,7 +46,7 @@ export class MinusEG extends AGenerator {
     // positive results, multiple operators
 
     if (!this.config.result.allowNegative) {
-      let start = MNumber.random(count - 1, max, decimalDigits);
+      let start = MNumber.random(Math.max(count - 1, min), max, decimalDigits);
       let remaining = start.getNumericValue();
 
       operands.push(start);

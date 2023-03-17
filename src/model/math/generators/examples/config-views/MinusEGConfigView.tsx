@@ -8,6 +8,7 @@ import {
   StyledShortInputD,
 } from "../../../../../components/lib/StyledBits";
 import { MinusExamplesGeneratorConfig } from "../numbers/MinusEG";
+import { Range } from "./components/Range";
 
 type ConfigType = MinusExamplesGeneratorConfig;
 
@@ -74,37 +75,14 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
               }}
             />
           </label>
-          <label>
-            {t("minus.min")}:
-            <StyledShortInputD
-              type={"number"}
-              value={config.operands.min}
-              min={0}
-              max={config.operands.max - 1}
-              onChangeDebounced={(v) => {
-                const changed = produce(config, (config) => {
-                  config.operands.min = Number(v);
-                });
+          <Range
+            label={t("minus.operandsBetween")}
+            config={config}
+            minPath={"operands.min"}
+            maxPath={"operands.max"}
+            onConfigChanged={props.onConfigChanged}
+          />
 
-                props.onConfigChanged && props.onConfigChanged(changed);
-              }}
-            />
-          </label>
-          <label>
-            {t("minus.max")}:
-            <StyledShortInputD
-              type={"number"}
-              value={config.operands.max}
-              min={config.operands.min + 1}
-              onChangeDebounced={(v) => {
-                const changed = produce(config, (config) => {
-                  config.operands.max = Number(v);
-                });
-
-                props.onConfigChanged && props.onConfigChanged(changed);
-              }}
-            />
-          </label>
           <label>
             {t("minus.decimalDigitsCount")}:
             <StyledShortInputD
@@ -125,7 +103,8 @@ export const MinusEGConfigView: FunctionComponent<ConfigViewPropsType> = (
             {t("minus.allowNegativeResults")}:
             <StyledShortInput
               type={"checkbox"}
-              checked={config.result.allowNegative}
+              checked={config.result.allowNegative || config.operands.count > 2}
+              disabled={config.operands.count > 2}
               onChange={(e) => {
                 const changed = produce(config, (config) => {
                   config.result.allowNegative = Boolean(

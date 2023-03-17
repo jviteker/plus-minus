@@ -54,8 +54,7 @@ export const CzDict: DictType = {
   minus: {
     name: "Odčítání",
     opsCount: "Počet členů",
-    min: "Min. hodnota",
-    max: "Max. hodnota",
+    operandsBetween: "Hodnoty mezi",
     decimalDigitsCount: "Počet desetinných míst",
     allowNegativeResults: "Povolit záporné výsledky",
   },
