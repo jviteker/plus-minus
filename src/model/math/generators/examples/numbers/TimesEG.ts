@@ -27,7 +27,10 @@ const Defaults: TimesExamplesGeneratorConfig = {
     decimalDigits: 0,
     shuffleOperands: false,
     // would overwrite min and max for given operand
-    ranges: [],
+    ranges: [
+      [1, 10],
+      [4, 4],
+    ],
   },
 };
 

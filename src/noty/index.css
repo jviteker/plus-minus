@@ -1,0 +1,91 @@
+@import "@fontsource/dm-sans/latin-ext-400.css";
+@import "@fontsource/dm-sans/latin-ext-500.css";
+@import "@fontsource/dm-sans/latin-ext-600.css";
+@import "@fontsource/dm-sans/latin-ext-700.css";
+@import "@fontsource/newsreader/latin-ext-400.css";
+@import "@fontsource/newsreader/latin-ext-500.css";
+
+.noty-page {
+  min-width: 320px;
+  font-family: "DM Sans", sans-serif;
+  color: #26392f;
+  background: #f5f6f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
+  letter-spacing: 0;
+  --ink: #26392f;
+  --muted: #747e77;
+  --green: #326c50;
+  --green-hover: #25563e;
+  --line: #dde3dc;
+  --serif: "Newsreader", Georgia, serif;
+  --border: #2e303a;
+}
+
+.noty-page,
+.noty-page * {
+  box-sizing: border-box;
+}
+
+.noty-page button,
+.noty-page input,
+.noty-page select {
+  font: inherit;
+  letter-spacing: 0;
+}
+
+.noty-page button,
+.noty-page a,
+.noty-page input,
+.noty-page select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.noty-page button {
+  cursor: pointer;
+}
+
+.noty-page button:disabled {
+  cursor: not-allowed;
+}
+
+.noty-page a {
+  color: inherit;
+}
+
+.noty-page button,
+.noty-page input,
+.noty-page select {
+  outline: none;
+}
+
+.noty-page :focus-visible {
+  outline: 3px solid #79a28b;
+  outline-offset: 4px;
+}
+
+.noty-page h1,
+.noty-page h2,
+.noty-page h3,
+.noty-page p {
+  margin: 0;
+}
+
+.noty-page button svg {
+  flex-shrink: 0;
+}
+
+.noty-page .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

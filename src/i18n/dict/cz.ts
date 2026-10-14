@@ -1,6 +1,30 @@
 import { DictType, EnDict } from "./en";
 
 export const CzDict: DictType = {
+  landing: {
+    brand: "Cvičebna",
+    language: "Vybrat jazyk",
+    kicker: "Prostor k procvičování",
+    title: "Co si dnes procvičíte?",
+    description: "Vyberte si oblast a pusťte se do toho.",
+    subjects: "Oblasti procvičování",
+    math: {
+      artLabel: "ČÍSELNÁ DÍLNA",
+      kicker: "ČÍSLA A POČÍTÁNÍ",
+      title: "Matematika",
+      description:
+        "Sestavte a vytiskněte pracovní listy na sčítání, zlomky, násobení a další témata.",
+      action: "Otevřít matematiku",
+    },
+    music: {
+      artLabel: "ČTENÍ NOT",
+      kicker: "HUDBA A NOTACE",
+      title: "Čtení not",
+      description:
+        "Procvičujte rozpoznávání not v houslovém a basovém klíči na novém pracovním listu.",
+      action: "Otevřít hudební cvičení",
+    },
+  },
   menu: {
     options: {
       exCount: "Počet cvičení",

@@ -1,4 +1,28 @@
 export const EnDict = {
+  landing: {
+    brand: "Practice room",
+    language: "Choose language",
+    kicker: "A place to practice",
+    title: "What would you like to practice?",
+    description: "Choose a subject to get started.",
+    subjects: "Practice subjects",
+    math: {
+      artLabel: "NUMBER WORKSHOP",
+      kicker: "NUMBERS AND OPERATIONS",
+      title: "Math exercises",
+      description:
+        "Build and print worksheets for addition, fractions, multiplication and more.",
+      action: "Open math exercises",
+    },
+    music: {
+      artLabel: "NOTE READING",
+      kicker: "MUSIC AND NOTATION",
+      title: "Note reading",
+      description:
+        "Practice identifying notes in treble and bass clef with a fresh worksheet.",
+      action: "Open music exercises",
+    },
+  },
   menu: {
     options: {
       exCount: "Exercises count",
